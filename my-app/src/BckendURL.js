@@ -1,0 +1,2 @@
+export const backendUrlteacherRegister = "http://localhost:4000/online_course/TeacherApi/registerTeacher/";
+export const backendUrlstudentRegister = "http://localhost:4000/online_course/StudentApi/registerStudent/";
