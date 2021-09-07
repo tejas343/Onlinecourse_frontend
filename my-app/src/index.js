@@ -10,14 +10,11 @@ import StudentRegister from './Component/StudentRegister';
 import Teacherlogin from './Component/Teacherlogin';
 import CreateCourse from './Component/CreateCourse';
 import ViewCourse from './Component/ViewCourse';
-
 ReactDOM.render(
-  <React.StrictMode>
-    <ViewCourse/>
-
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+<React.StrictMode>
+<ViewCourse/>
+</React.StrictMode>,
+  document.getElementById('root'));
 //hi
 
 // If you want to start measuring performance in your app, pass a function
