@@ -8,10 +8,12 @@ import Studentlogin from './Component/Studentlogin';
 import TeacherRegister from './Component/TeacherRegister';
 import StudentRegister from './Component/StudentRegister';
 import Teacherlogin from './Component/Teacherlogin';
+import CreateCourse from './Component/CreateCourse';
+import ViewCourse from './Component/ViewCourse';
 
 ReactDOM.render(
   <React.StrictMode>
-    <StudentRegister/>
+    <ViewCourse/>
 
   </React.StrictMode>,
   document.getElementById('root')
