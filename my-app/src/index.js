@@ -13,7 +13,7 @@ import ViewCourse from './Component/ViewCourse';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ViewCourse/>
+    <Navigation/>
 
   </React.StrictMode>,
   document.getElementById('root')

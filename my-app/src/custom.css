@@ -11,7 +11,8 @@
 html, body {
     height: 100%;
     background-color: #152733;
-    overflow: hidden;
+    overflow-x: hidden;
+    max-height: 100%;
 }
 
 
@@ -146,4 +147,8 @@ html, body {
 
 .valid-feedback{
    color: #2acc80;
+}
+
+.col-md-3{
+    margin: 20px;
 }

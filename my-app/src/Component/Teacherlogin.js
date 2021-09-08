@@ -5,6 +5,22 @@ import '../custom.css'
 
 class Teacherlogin extends Component {
 
+
+    handleSubmit = event =>{
+        event.preventDefault();
+        this.login();
+    }
+
+    login = () => {
+        //const {formValue} = this.state;
+        this.setState({errorMessage:"", successMessage:""});
+        sessionStorage.setItem("userId", "101");
+        sessionStorage.setItem("userName", "Rahul Chavan");
+        sessionStorage.setItem("userRole","teacher");
+        window.location.href = "/";
+
+    }
+
 render(){
                 return(
                     <div class="form-body">
@@ -28,7 +44,7 @@ render(){
                                          </div>
                 
                                         <div class="form-button mt-3">
-                                            <button id="submit" type="submit" class="btn btn-primary">Login</button>
+                                            <button id="submit" type="submit" class="btn btn-primary" onClick = {this.handleSubmit}>Login</button>
                                         </div>
                                     </form>
                                 </div>
