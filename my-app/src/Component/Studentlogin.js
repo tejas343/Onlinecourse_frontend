@@ -122,18 +122,18 @@ class Studentlogin extends Component {
                             <h3>Login as Student</h3>
                             <form class="requires-validation" novalidate>
         
-                                <div class="col-md-12">
+                                <div class="col-md-12 col-sm-4">
                                     <input class="form-control" type="text" name="contactNumber" placeholder="Contactnumber" onChange = {this.handlechange} required/>
                                     <Message severity = "error" text = {this.state.formErrorMessage.contactNumber} style = {{"color" : "red", "max-width": 400}}></Message>
                                  </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-12 col-sm-4">
                                     <input class="form-control" type="password" name="password" placeholder="password" onChange={this.handlechange} required/>
                                     <Message severity = "error" text = {this.state.formErrorMessage.password} style = {{"color" : "red", "max-width": 400}}></Message> 
                                  </div>
         
                                 <div class="form-button mt-3">
-                                    <button id="submit" type="submit" class="btn btn-primary" onClick={this.handleSubmit}>Login</button>
+                                    <button id="submit" type="submit" class="btn btn-primary" onClick={this.handleSubmit} disabled = {!this.state.formValid.ButtonActive}>Login</button>
                                 </div>
                             </form>
                             <br/>
