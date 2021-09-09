@@ -17,7 +17,12 @@ class CreateCourse extends Component {
         formValue:{
             courseName:"",
             description:"",
-            imageUrl:""
+            imageUrl:"",
+            educatorName:"",
+            dateTime:null,
+            teacherDto:{
+                teacherId:sessionStorage.getItem("userId")
+            }
         },
 
         formErrorMessage:{
@@ -92,6 +97,15 @@ class CreateCourse extends Component {
 	}
 	};
 
+    addDate = event =>{
+        const target = event.target;
+        const value = target.value;
+
+        console.log(value);
+        const {formValue} = this.state;
+        this.setState({formValue : {...formValue, dateTime : value} })
+    }
+
     handlechange = event => {
         
         const target = event.target;
@@ -104,7 +118,7 @@ class CreateCourse extends Component {
     };
 
 
-    handleSubmit = event =>{
+    handleSubmit = (event) =>{
         event.preventDefault();
         this.register();
     }
@@ -114,11 +128,25 @@ class CreateCourse extends Component {
         this.setState({errorMessage:"", successMessage:""});
 
         console.log(formValue);
+
         axios.post(backendUrlCourseAdd,formValue)
         .then(
             response => {
                 console.log(response.data);
-                this.setState({errorMessage : "", successMessage : response.data})
+                this.setState({
+                    selectedFile:"",
+                    successUpload:"",
+                    formValue:{courseName:"",
+                        description:"",
+                        imageUrl:"",
+                        educatorName:"",
+                        dateTime:null,
+                        teacherDto:{
+                            teacherId:sessionStorage.getItem("userId")
+                        }
+                    },
+                    errorMessage : "", successMessage : response.data})
+                
             }).catch(error => {
                 if(error.response) {
                     console.log(error.response.data);
@@ -129,6 +157,7 @@ class CreateCourse extends Component {
                 }
                 
             });
+        
     }
 	
 	render() {
@@ -143,7 +172,7 @@ class CreateCourse extends Component {
                             <form class="requires-validation" novalidate>
                                 <div className = "row">
                                 <div class="col-md-8">
-                                    <input class="form-control" type="file" name="courseImage" onChange={this.onFileChange} required/>
+                                    <input class="form-control" type="file" name="courseImage" onChange={this.onFileChange}  required/>
                                  </div>
                                  <div class="col-md-4">
                                     <button class="btn btn-primary" onClick={this.onFileUpload}>Upload</button>
@@ -153,14 +182,24 @@ class CreateCourse extends Component {
                                  <Message severity = "success" text = {this.state.successUpload} style = {{"color" : "green","max-width": 400}}></Message>
         
                                  <div class="col-md-12">
-                                    <input class="form-control" type="text" name="courseName" placeholder="Enter course name." onChange = {this.handlechange} required/>
+                                    <input class="form-control" type="text" name="courseName" placeholder="Enter course name." value = {this.state.formValue.courseName} onChange = {this.handlechange} required/>
                                     <Message severity = "error" text = {this.state.formErrorMessage.emailId} style = {{"color" : "red","max-width": 400}}></Message>
                                 </div>
                                 <br/>
                                 <div class="col-md-12">
-                                    <textarea class="form-control" type="text" name="description" placeholder="Enter course description. (Minimum 50 characters)" onChange = {this.handlechange} required/>
+                                    <textarea class="form-control" type="text" name="description" placeholder="Enter course description. (Minimum 50 characters)" value = {this.state.formValue.description} onChange = {this.handlechange} required/>
                                     <Message severity = "error" text = {this.state.formErrorMessage.emailId} style = {{"color" : "red","max-width": 400}}></Message>
                                 </div>
+                                <div class="col-md-12">
+                                    <input class="form-control" type="text" name="educatorName" placeholder="Enter Educator name." value = {this.state.formValue.educatorName} onChange = {this.handlechange} required/>
+                                    <Message severity = "error" text = {this.state.formErrorMessage.emailId} style = {{"color" : "red","max-width": 400}}></Message>
+                                </div>
+                                <br/>
+                                <div class="col-md-12">
+                                    <input class="form-control" type="datetime-local" name="dateTime" value = {this.state.formValue.dateTime} onChange = {this.addDate} required/>
+                                    <Message severity = "error" text = {this.state.formErrorMessage.emailId} style = {{"color" : "red","max-width": 400}}></Message>
+                                </div>
+                                <br/>
                                 <div class="form-button mt-3">
                                     <button id="submit" type="submit" class="btn btn-primary" onClick = {this.handleSubmit}>Add Course</button>
                                 </div>

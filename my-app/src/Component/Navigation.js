@@ -6,6 +6,7 @@ import StudentRegister from "./StudentRegister";
 import Teacherlogin from "./Teacherlogin";
 import TeacherRegister from "./TeacherRegister";
 import Home from "./Home";
+import CreateCourse from "./CreateCourse";
 
 class Navigation extends Component{
 
@@ -45,8 +46,12 @@ class Navigation extends Component{
                         
                         :null}
                         {(this.state.logged_userRole === "teacher")?
-                            <><li class="nav-item">
-                            <Link class="nav-link" to="/Course Created">Course Created</Link>
+                            <>
+                            <li class="nav-item">
+                            <Link class="nav-link" to="/create course">Create Course</Link>
+                            </li>
+                            <li class="nav-item">
+                            <Link class="nav-link" to="/course created">Course Created</Link>
                             </li>
                             <li class="nav-item">
                             <Link class="nav-link" to="/" onClick = {this.logout}>Log Out</Link>
@@ -96,7 +101,7 @@ class Navigation extends Component{
                     <Route exact path="/student register" component= {StudentRegister}></Route>
                     <Route exact path="/teacher login" component= {Teacherlogin}></Route>
                     <Route exact path="/teacher register" component= {TeacherRegister}></Route>
-                        
+                    <Route exact path="/create course" component= {CreateCourse}></Route>   
                 </Switch>
             </Router>
             </div>
