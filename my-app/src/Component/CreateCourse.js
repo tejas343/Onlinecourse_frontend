@@ -10,7 +10,7 @@ class CreateCourse extends Component {
 
 	// Initially, no file is selected
 	    selectedFile: null,
-
+        successUpload:"",
         successMessage: "",
         errorMessage: "",
         
@@ -60,9 +60,16 @@ class CreateCourse extends Component {
             this.state.selectedFile,
             this.state.selectedFile.name
         );
-        axios.post(backendUploadImage, formData);
-        const {formValue} = this.state;
-        this.setState({formValue : {...formValue, imageUrl: this.state.selectedFile.name} } );
+        axios.post(backendUploadImage, formData).then(
+
+            response => {
+                console.log(response.data);
+                const {formValue} = this.state;
+                this.setState({formValue : {...formValue, imageUrl: response.data} } );
+                this.setState({successUpload:"file uploaded successfully!"})
+            }
+        );
+        
         }
 	};
 	
@@ -106,6 +113,7 @@ class CreateCourse extends Component {
         const {formValue} = this.state;
         this.setState({errorMessage:"", successMessage:""});
 
+        console.log(formValue);
         axios.post(backendUrlCourseAdd,formValue)
         .then(
             response => {
@@ -140,7 +148,9 @@ class CreateCourse extends Component {
                                  <div class="col-md-4">
                                     <button class="btn btn-primary" onClick={this.onFileUpload}>Upload</button>
                                  </div>
+                                 
                                  </div>
+                                 <Message severity = "success" text = {this.state.successUpload} style = {{"color" : "green","max-width": 400}}></Message>
         
                                  <div class="col-md-12">
                                     <input class="form-control" type="text" name="courseName" placeholder="Enter course name." onChange = {this.handlechange} required/>
