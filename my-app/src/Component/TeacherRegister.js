@@ -180,7 +180,8 @@ class TeacherRegister extends Component {
                         <div class="form-items">
                             <h3>Register as Teacher</h3>
                             <p>Fill in the data below.</p>
-                            <form class="requires-validation" novalidate>
+                            <form class="requires-validation" autocomplete="off" novalidate>
+                                <input autocomplete="false" name="hidden" type="text" class="hidden"/>
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="secretCode" placeholder="Enter Secret code" onChange = {this.handlechange} required/>
                                     <Message severity = "error" text = {this.state.formErrorMessage.secretCode} style = {{"color" : "red","max-width": 400}}></Message>
@@ -196,7 +197,7 @@ class TeacherRegister extends Component {
                                     <Message severity = "error" text = {this.state.formErrorMessage.emailId} style = {{"color" : "red","max-width": 400}}></Message>
                                 </div>
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="contactNo" placeholder="Contactnumber" onChange = {this.handlechange} required/>
+                                    <input class="form-control" autoComplete = "off" type="text" name="contactNo" placeholder="Contactnumber" onChange = {this.handlechange} required/>
                                     <Message severity = "error" text = {this.state.formErrorMessage.contactNo} style = {{"color" : "red","max-width": 400}}></Message>
                                  </div>
 
