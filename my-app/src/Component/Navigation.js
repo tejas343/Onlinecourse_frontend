@@ -7,6 +7,8 @@ import Teacherlogin from "./Teacherlogin";
 import TeacherRegister from "./TeacherRegister";
 import Home from "./Home";
 import CreateCourse from "./CreateCourse";
+import { Redirect } from "react-router-dom";
+
 
 class Navigation extends Component{
 
@@ -24,10 +26,12 @@ class Navigation extends Component{
         
         sessionStorage.clear();
         this.setState({ logged_out: true });
-        window.location.reload();
+        window.location.href = "/";
+        //window.location.reload();
       };
     
     render(){
+        
 
 
         let navData = <div class="collapse navbar-collapse" id="navbarNavDropdown">
