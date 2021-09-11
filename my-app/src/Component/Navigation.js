@@ -7,7 +7,9 @@ import Teacherlogin from "./Teacherlogin";
 import TeacherRegister from "./TeacherRegister";
 import Home from "./Home";
 import CreateCourse from "./CreateCourse";
-import { Redirect } from "react-router-dom";
+
+import EnrolledCourse from "./EnrolledCourse";
+import CourseCreated from "./CourseCreated";
 
 
 class Navigation extends Component{
@@ -105,7 +107,9 @@ class Navigation extends Component{
                     <Route exact path="/student register" component= {StudentRegister}></Route>
                     <Route exact path="/teacher login" component= {Teacherlogin}></Route>
                     <Route exact path="/teacher register" component= {TeacherRegister}></Route>
-                    <Route exact path="/create course" component= {CreateCourse}></Route>   
+                    <Route exact path="/create course" component= {CreateCourse}></Route>
+                    <Route exact path="/Enrolled Courses" component={EnrolledCourse}></Route> 
+                    <Route exact path="/course created" component={CourseCreated}></Route>     
                 </Switch>
             </Router>
             </div>

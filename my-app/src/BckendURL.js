@@ -7,3 +7,5 @@ export const backendUrlCourseAdd = "http://localhost:4000/online_course/CouseApi
 export const backendUrlgetAllCourses = "http://localhost:4000/online_course/CouseApi/getAllCourses/";
 export const backendUrlgetCoursesBySearch = "http://localhost:4000/online_course/CouseApi/getAllCourses/";
 export const backendUrlEnrollCourse = "http://localhost:4000/online_course/EnrollApi/enroll/";
+export const backendUrlGetStudentEnrollCourse = "http://localhost:4000/online_course/EnrollApi/getCourseByStudent/";
+export const backendUrlGetCourseByTeacher ="http://localhost:4000/online_course/CouseApi/getCoursesByTeacher/"

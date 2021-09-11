@@ -13,7 +13,7 @@ import { backendUrlEnrollCourse, backendUrlgetAllCourses, backendUrlgetCoursesBy
     },
     tooltip: {
       backgroundColor: theme.palette.common.black, 
-      minHeight:200
+      minHeight:350
      
     },
   }));
